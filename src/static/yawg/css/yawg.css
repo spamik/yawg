@@ -2,3 +2,52 @@ body {
     background-color: black;
     color: white;
 }
+
+#topbar_nav {
+    width: 100%;
+    text-align: right;
+}
+#topbar_nav ul li {
+    display: inline;
+    padding-right: 15px;
+}
+
+#header {
+    margin-left: 20px;
+}
+
+#page_body {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#sidebar {
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+
+    width: 170px;
+    float: left;
+    padding-left: 5px;
+    padding-top: 20px;
+}
+
+#page_content {
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    margin-left: 10px;
+    padding: 20px;
+    width: 100%;
+}
+#page_content h1, h2 {
+    margin: 0;
+}
+
+#footer {
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: 10px;
+    text-align: center;
+}
