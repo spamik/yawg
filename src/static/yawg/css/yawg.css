@@ -1,6 +1,16 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: #404040;
+    color: #bcbcbc;
+    font-family: "Lucida Sans Unicode", sans-serif;
+}
+
+a, a:visited {
+    color: #b6a95c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d5c772;
 }
 
 #topbar_nav {
@@ -19,23 +29,20 @@ body {
 #page_body {
     margin-bottom: 10px;
     display: flex;
+    background-color: #585858;
 }
 
 #sidebar {
-    border-color: white;
+    border-right-style: solid;
     border-width: 1px;
-    border-style: solid;
-
+    border-color: #404040;
     width: 170px;
     float: left;
-    padding-left: 5px;
+    padding-left: 10px;
     padding-top: 20px;
 }
 
 #page_content {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
     margin-left: 10px;
     padding: 20px;
     width: 100%;
@@ -45,9 +52,6 @@ body {
 }
 
 #footer {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
     padding-left: 10px;
     text-align: center;
 }
