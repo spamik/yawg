@@ -14,24 +14,19 @@
 
     <body>
         <div id="topbar_nav">
-            <ul>
-                <li>nana</li>
-                <li>na</li>
-                <li><a href="#">nana</a> </li>
-            </ul>
+            {% block topbar %}{% endblock %}
         </div>
         <div id="header">
-            <h1>gallery</h1>
+            {% block header %}{% endblock %}
         </div>
         <div id="page_body">
             <div id="sidebar">
-                nana
+                {% block sidebar %}{% endblock %}
             </div>
             <div id="page_content">
-                <h2>content</h2>
+                {% block content %}{% endblock %}
             </div>
         </div>
-        <div id="footer">yawg</div>
-        {% block html_body %}{% endblock %}
+        <div id="footer">YAWGallery</div>
     </body>
 </html>
