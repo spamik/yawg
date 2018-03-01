@@ -3,6 +3,5 @@ from django.shortcuts import render
 
 
 def hello_world(request):
-    c = {}
-    c['host'] = request.get_host()
-    return HttpResponse(render(request, 'yawg/layout.html', c))
+    c = {'msg': request.get_host()}
+    return HttpResponse(render(request, 'yawg/infomsg.html', c))
