@@ -8,9 +8,9 @@ class GalleryStorage(models.Model):
 
 class Gallery(models.Model):
     gallery_name = models.CharField(max_length=128)
-    gallery_alias = models.CharField(max_length=64)
+    gallery_alias = models.CharField(max_length=64, unique=True)
 
 
 class GalleryDomainMap(models.Model):
-    domain_host = models.CharField(max_length=128)
+    domain_host = models.CharField(max_length=128, unique=True)
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE)
