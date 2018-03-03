@@ -1,0 +1,25 @@
+{% extends "yawg/gadmin/gadmin_template.html" %}
+{% block content %}
+    <h1>Gallery sites</h1>
+    {% if object_list %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Alias</th>
+                <th></th>
+            </tr>
+            {% for i in object_list %}
+                <tr>
+                    <td>{{ i.gallery_name }}</td>
+                    <td>{{ i.gallery_alias }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No gallery sites defined.</p>
+    {% endif %}
+    <ul>
+        <li><a href="#">Add new</a> </li>
+    </ul>
+{% endblock %}

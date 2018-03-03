@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from yawgcore.models import GalleryDomainMap
+from django.views.generic import ListView
+
+from yawgcore.models import GalleryDomainMap, Gallery
 
 
 def list_gallery(request, url=None):
@@ -12,3 +14,10 @@ def list_gallery(request, url=None):
         return HttpResponse(render(request, 'yawg/infomsg.html', c))
     c = {'msg': 'blabla'}
     return HttpResponse(render(request, 'yawg/infomsg.html', c))
+
+
+class GalleryListView(ListView):
+    template_name = 'yawg/gadmin/gallery_list.html'
+
+    def get_queryset(self):
+        return Gallery.objects.all().order_by('gallery_name')
