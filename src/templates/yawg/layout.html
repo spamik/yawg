@@ -14,7 +14,13 @@
 
     <body>
         <div id="topbar_nav">
-            {% block topbar %}{% endblock %}
+            {% block topbar %}
+                <ul>
+                    <li>User</li>
+                    <li><a href="#">Login</a> </li>
+                    <li><a href="{% url "yawg-gadmin-index" %}">Administration</a> </li>
+                </ul>
+            {% endblock %}
         </div>
         <div id="header">
             {% block header %}{% endblock %}

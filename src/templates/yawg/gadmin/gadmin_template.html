@@ -1,17 +1,10 @@
 {% extends "yawg/layout.html" %}
-{% block topbar %}
-    <ul>
-        <li>User</li>
-        <li><a href="#">Login</a> </li>
-        <li><a href="#">Administration</a> </li>
-    </ul>
-{% endblock %}
 {% block header %}
     <h1>YAWGallery administration</h1>
 {% endblock %}
 {% block sidebar %}
     <ul>
-        <li><a href="#">Galleries</a> </li>
+        <li><a href="{% url "yawg-gadmin-index" %}">Galleries</a> </li>
         <li><a href="#">Users</a> </li>
     </ul>
 {% endblock %}

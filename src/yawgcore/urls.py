@@ -6,5 +6,5 @@ from yawgcore import views
 urlpatterns = [
     path('', views.list_gallery),
     path('browse/<path:url>', views.list_gallery),
-    path('gadmin/', views.GalleryListView.as_view()),
+    path('gadmin/', views.GalleryListView.as_view(), name='yawg-gadmin-index'),
 ]
