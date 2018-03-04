@@ -2,6 +2,11 @@
 {% block header %}
     <h1>{{ gallery.gallery_name }}</h1>
 {% endblock %}
+{% block sidebar %}
+    <ul>
+        <li><a href="#">Add album</a> </li>
+    </ul>
+{% endblock %}
 {% block content %}
     <h1>Browse: {{ listed_item.gallery_name }}</h1>
     <div id="listing_content">
