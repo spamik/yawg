@@ -33,8 +33,14 @@ class Album(models.Model):
     album_alias = models.CharField(max_length=64)
     items = GenericRelation(ItemMapping, content_type_field='parent_ct', object_id_field='parent_id')
 
+    def gallery_name(self):
+        return self.album_name
+
 
 class GalleryItem(models.Model):
     item_name = models.CharField(max_length=128)
     filename = models.CharField(max_length=64)
+
+    def gallery_name(self):
+        return self.item_name
 

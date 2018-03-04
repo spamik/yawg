@@ -11,13 +11,13 @@ def list_gallery(request, url=None):
     List content of gallery/album
     """
     try:
-        GalleryDomainMap.objects.get(domain_host=request.get_host())
+        gallery = GalleryDomainMap.objects.get(domain_host=request.get_host()).gallery
     except GalleryDomainMap.DoesNotExist:
         # this domain has no associated gallery
         c = {'msg': 'No gallery defined at site %s' % request.get_host()}
         return HttpResponse(render(request, 'yawg/infomsg.html', c))
-    c = {'msg': 'blabla'}
-    return HttpResponse(render(request, 'yawg/infomsg.html', c))
+    c = {'gallery_items': gallery.items.all(), 'gallery': gallery}
+    return HttpResponse(render(request, 'yawg/browse.html', c))
 
 
 class GalleryListView(ListView):
