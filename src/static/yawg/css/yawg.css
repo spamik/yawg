@@ -55,3 +55,11 @@ a:hover {
     padding-left: 10px;
     text-align: center;
 }
+
+#listing_content {
+    text-align: center;
+}
+
+#browse_table {
+    width: 100%;
+}

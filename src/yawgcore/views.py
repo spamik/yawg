@@ -22,6 +22,7 @@ def list_gallery(request, album=None, alias=None):
         # list items in albums instead of gallery
         item_select = Album.objects.get(id=album)
     c['gallery_items'] = item_select.items.all()
+    c['listed_item'] = item_select
     return HttpResponse(render(request, 'yawg/browse.html', c))
 
 
