@@ -7,6 +7,9 @@ from yawgcore.models import GalleryDomainMap, Gallery
 
 
 def list_gallery(request, url=None):
+    """
+    List content of gallery/album
+    """
     try:
         GalleryDomainMap.objects.get(domain_host=request.get_host())
     except GalleryDomainMap.DoesNotExist:
@@ -18,6 +21,9 @@ def list_gallery(request, url=None):
 
 
 class GalleryListView(ListView):
+    """
+    Admin site - list defined galleries
+    """
     template_name = 'yawg/gadmin/gallery_list.html'
 
     def get_queryset(self):
@@ -25,7 +31,12 @@ class GalleryListView(ListView):
 
 
 class GalleryCreate(CreateView):
+    """
+    Create new Gallery (model)
+    """
     template_name = 'yawg/gadmin/gallery_edit.html'
     model = Gallery
     fields = ['gallery_name', 'gallery_alias']
+
+
 
