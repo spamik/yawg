@@ -5,7 +5,7 @@ from yawgcore import views
 
 urlpatterns = [
     path('', views.list_gallery),
-    path('browse/<path:url>', views.list_gallery),
+    path('browse/<int:album>/<str:alias>/', views.list_gallery),
     path('gadmin/', views.GalleryListView.as_view(), name='yawg-gadmin-index'),
     path('gadmin/gallery/new', views.GalleryCreate.as_view(), name='yawg-gadmin-gallery-new'),
     path('gadmin/gallery/<int:pk>/settings', views.GallerySettings.as_view(), name='yawg-gadmin-gallery-settings'),
