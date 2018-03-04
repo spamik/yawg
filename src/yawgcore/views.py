@@ -39,4 +39,14 @@ class GalleryCreate(CreateView):
     fields = ['gallery_name', 'gallery_alias']
 
 
+class GallerySettings(TemplateView):
+    """
+    Show settings for gallery
+    """
+    template_name = 'yawg/gadmin/gallery_settings.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['gallery'] = Gallery.objects.get(id=self.kwargs['pk'])
+        context['domains'] = GalleryDomainMap.objects.filter(gallery=context['gallery'])
+        return context

@@ -12,7 +12,11 @@
                 <tr>
                     <td>{{ i.gallery_name }}</td>
                     <td>{{ i.gallery_alias }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{% url "yawg-gadmin-gallery-settings" i.id %}">Settings</a>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </table>

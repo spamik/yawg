@@ -1,0 +1,22 @@
+{% extends "yawg/gadmin/gadmin_template.html" %}
+{% block content %}
+    <h1>Gallery {{ gallery.gallery_name }}</h1>
+    <h2>Mapped domains</h2>
+    {% if domains %}
+        <table>
+            <tr>
+                <th>Domain</th>
+                <th></th>
+            </tr>
+            {% for i in domains %}
+                <td>{{ i.domain_host }}</td>
+                <td></td>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No mapped domains at this time</p>
+    {% endif %}
+    <ul>
+        <li><a href="#">Add new domain</a></li>
+    </ul>
+{% endblock %}
