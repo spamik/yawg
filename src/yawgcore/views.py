@@ -50,3 +50,20 @@ class GallerySettings(TemplateView):
         context['gallery'] = Gallery.objects.get(id=self.kwargs['pk'])
         context['domains'] = GalleryDomainMap.objects.filter(gallery=context['gallery'])
         return context
+
+
+class GalleryDomainMapCreate(CreateView):
+    """
+    Creating new domain for gallery
+    """
+    template_name = 'yawg/gadmin/gallery_domain_edit.html'
+    model = GalleryDomainMap
+    fields = ('domain_host',)
+
+    def form_valid(self, form):
+        """
+        fill gallery FK to that passed in URL
+        """
+        form.instance.gallery = Gallery.objects.get(id=self.kwargs['pk'])
+        return super().form_valid(form)
+

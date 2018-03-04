@@ -17,6 +17,6 @@
         <p>No mapped domains at this time</p>
     {% endif %}
     <ul>
-        <li><a href="#">Add new domain</a></li>
+        <li><a href="{% url "yawg-gadmin-gallery-domain-new" gallery.id %}">Add new domain</a></li>
     </ul>
 {% endblock %}
