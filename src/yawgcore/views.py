@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView, CreateView
 
+from yawgcore.forms import GalleryForm
 from yawgcore.models import GalleryDomainMap, Gallery
 
 
@@ -21,3 +22,10 @@ class GalleryListView(ListView):
 
     def get_queryset(self):
         return Gallery.objects.all().order_by('gallery_name')
+
+
+class GalleryCreate(CreateView):
+    template_name = 'yawg/gadmin/gallery_edit.html'
+    model = Gallery
+    fields = ['gallery_name', 'gallery_alias']
+
