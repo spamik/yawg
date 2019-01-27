@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, CreateView
 
 from yawgcore.forms import GalleryForm
-from yawgcore.models import GalleryDomainMap, Gallery, Album
+from yawgcore.models import GalleryDomainMap, Gallery, Album, GalleryItem
 
 
 def list_gallery(request, album=None, alias=None):
@@ -18,12 +18,37 @@ def list_gallery(request, album=None, alias=None):
         return HttpResponse(render(request, 'yawg/infomsg.html', c))
     c = {'gallery': gallery}
     item_select = gallery
+    # ToDo: check album exists
     if album:
         # list items in albums instead of gallery
         item_select = Album.objects.get(id=album)
     c['gallery_items'] = item_select.items.all()
     c['listed_item'] = item_select
     return HttpResponse(render(request, 'yawg/browse.html', c))
+
+
+def list_item(request, item, filename):
+    """
+    Show item detail
+    """
+    # ToDo: write decorator / etc for gallery check exists (not to repeat it)
+    try:
+        gallery = GalleryDomainMap.objects.get(domain_host=request.get_host()).gallery
+    except GalleryDomainMap.DoesNotExist:
+        # this domain has no associated gallery
+        c = {'msg': 'No gallery defined at site %s' % request.get_host()}
+        return HttpResponse(render(request, 'yawg/infomsg.html', c))
+    c = {'gallery': gallery}
+    # ToDo: check also filename
+    try:
+        item = GalleryItem.objects.get(id=item)
+    except GalleryItem.DoesNotExist:
+        # no such item
+        # ToDo. change msg template when gallery name is known
+        c = {'msg': 'No such item exists in this gallery'}
+        return HttpResponse(render(request, 'yawg/infomsg.html', c))
+    c['item'] = item
+    return HttpResponse(render(request, 'yawg/item_detail.html', c))
 
 
 class GalleryListView(ListView):

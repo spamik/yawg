@@ -49,5 +49,5 @@ class GalleryItem(models.Model):
         return self.item_name
 
     def browse_url(self):
-        return './b'
+        return reverse('yawg-list-item', args=([self.id, self.filename]))
 
