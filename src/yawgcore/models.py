@@ -1,6 +1,7 @@
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.urls import reverse
 
 
 class GalleryStorage(models.Model):
@@ -36,6 +37,9 @@ class Album(models.Model):
     def gallery_name(self):
         return self.album_name
 
+    def browse_url(self):
+        return reverse('yawg-list-album', args=([self.id, self.album_alias]))
+
 
 class GalleryItem(models.Model):
     item_name = models.CharField(max_length=128)
@@ -43,4 +47,7 @@ class GalleryItem(models.Model):
 
     def gallery_name(self):
         return self.item_name
+
+    def browse_url(self):
+        return './b'
 

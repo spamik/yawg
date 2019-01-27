@@ -13,7 +13,9 @@
         <table id="browse_table">
             {% for i in gallery_items %}
                 {% if forloop.counter0|divisibleby:3 %}<tr>{% endif %}
-                    <td>{{ i.item_object.gallery_name }}</td>
+                    <td>
+                        <a href="{{ i.item_object.browse_url }}">{{ i.item_object.gallery_name }}</a>
+                    </td>
                 {% if forloop.counter|divisibleby:3 or forloop.last %}</tr>{% endif %}
             {% endfor %}
         </table>
